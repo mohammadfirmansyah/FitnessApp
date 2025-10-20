@@ -11,7 +11,18 @@ const IntenseWorkoutPlans = [
   { id: '1', title: 'Zumba Class', description: '30 minutes of zumba classes', duration: '30 min', imageUrl: 'https://images.unsplash.com/photo-1524594152303-9fd13543fe6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
   { id: '2', title: 'Circuit Training', description: '20 minutes of circuit training', duration: '20 min', imageUrl: 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y2lyY3VpdCUyMHRyYWluaW5nfGVufDB8fDB8fHwy' },
   { id: '3', title: 'Pilate Training', description: '60 minutes of pilate training', duration: '20 min', imageUrl: 'https://images.unsplash.com/photo-1620134280013-e756c46affc6?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+];
 
+const BeginnerPlan = [
+  { id: '1', title: 'Morning Walk', description: '30 minutes of brisk walking', duration: '30 min', imageUrl: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { id: '2', title: 'Basic Stretching', description: '15 minutes of full body stretching', duration: '15 min', imageUrl: 'https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { id: '3', title: 'Light Jogging', description: '20 minutes of light jogging', duration: '20 min', imageUrl: 'https://images.unsplash.com/photo-1486218119243-13883505764c?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+];
+
+const IntermediatePlan = [
+  { id: '1', title: 'Running', description: '45 minutes of running', duration: '45 min', imageUrl: 'https://images.unsplash.com/photo-1423412421382-920115312150?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { id: '2', title: 'Swimming', description: '60 minutes of swimming', duration: '60 min', imageUrl: 'https://images.unsplash.com/photo-1560272564-c83b66b17484?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { id: '3', title: 'Cycling', description: '75 minutes of cycling', duration: '75 min', imageUrl: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
 ];
 
 export default function FitnessWorld() {
@@ -78,6 +89,30 @@ export default function FitnessWorld() {
         <Text style={styles.header}>Intense Workout Plans</Text>
         <FlatList
           data={IntenseWorkoutPlans}
+          renderItem={renderWorkout}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      {/* Beginner's Workout Plan Section */}
+      <View style={styles.section}>
+        <Text style={styles.header}>Beginner's Workout Plan</Text>
+        <FlatList
+          data={BeginnerPlan}
+          renderItem={renderWorkout}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        />
+      </View>
+
+      {/* Intermediate Workout Plan Section */}
+      <View style={styles.section}>
+        <Text style={styles.header}>Intermediate Workout Plan</Text>
+        <FlatList
+          data={IntermediatePlan}
           renderItem={renderWorkout}
           keyExtractor={(item) => item.id}
           horizontal={true}
